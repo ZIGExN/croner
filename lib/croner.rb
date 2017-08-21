@@ -9,6 +9,9 @@ module Croner
     # 設定内容を取得
     insert_rows = File.read(Rails.root.join('config', 'croner', 'hosts', `hostname`.delete("\n"))).split("\n")
 
+    # 現在のcron設定をバックアップしておく
+    `crontab -l > cron_#{Time.current.strftime('%Y%m%d%H%M%S')}.bak`
+
     # 現在のcron設定を取得
     cron_rows = `crontab -l`.split("\n")
 
