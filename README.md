@@ -16,7 +16,7 @@ $ bundle
 ```
 
 ## Usage
-Make `config/croner/hosts/[hostname]` and run `croner:update`.
+Make `config/croner/hosts/[hostname]` and run task `croner:update`.
 
 ## License
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
