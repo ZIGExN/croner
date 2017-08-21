@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    croner (0.1.1)
+    croner (0.1.2)
       rails (>= 4.0.0)
 
 GEM
