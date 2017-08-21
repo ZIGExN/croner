@@ -10,13 +10,13 @@ Gem::Specification.new do |s|
   s.authors     = ["ykogure"]
   s.email       = ["renkin1008@gmail.com"]
   s.homepage    = "https://github.com/ZIGExN/croner"
-  s.summary     = "TODO: Summary of Croner."
-  s.description = "TODO: Description of Croner."
+  s.summary     = "An plugin that manage cron jobs each applications and servers"
+  s.description = "An plugin that manage cron jobs each applications and servers"
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
-  s.add_dependency "rails", "~> 5.0.2"
+  s.add_dependency "rails", ">= 4.0.0"
 
   s.add_development_dependency "mysql2"
 end

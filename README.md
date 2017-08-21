@@ -1,8 +1,7 @@
 # Croner
-Short description and motivation.
+An plugin that manage cron jobs each applications and servers.
 
-## Usage
-How to use my plugin.
+*Read this in other languages: [日本語](README.ja.md)*
 
 ## Installation
 Add this line to your application's Gemfile:
@@ -16,13 +15,11 @@ And then execute:
 $ bundle
 ```
 
-Or install it yourself as:
-```bash
-$ gem install croner
-```
-
-## Contributing
-Contribution directions go here.
+## Usage
+Make `config/croner/hosts/[hostname]` and run `croner:update`.
 
 ## License
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+
+## Author
+[ykogure](https://github.com/ykogure)
