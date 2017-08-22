@@ -18,6 +18,17 @@ $ bundle
 ## Usage
 Make `config/croner/hosts/[hostname]` and run task `croner:update`.
 
+## Capistrano integration
+In your `config/deploy.rb` or `Capfile` file:
+```rb
+require "croner/capistrano"
+```
+
+And if you want to change role, append your `config/deploy.rb` file:
+```rb
+croner_roles %w(web db)
+```
+
 ## License
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 

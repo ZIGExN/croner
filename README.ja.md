@@ -20,6 +20,17 @@ $ bundle
 `croner:update`タスクを実行すると、実行したサーバーのホスト名のファイルがあればその内容を追加します。無い場合は何も処理を行いません。
 アプリケーション毎にcron内にブロック(開始行と終了行)の内側に内容を追加するため、既存のcronの内容に影響はありません。
 
+## Capistrano integration
+`config/deploy.rb`または`Capfile`に下記を追加することで簡単にCapistranoと連携し、deploy時にcrontabを更新することができます。
+```rb
+require "croner/capistrano"
+```
+
+デフォルトでは'db'ロールでのみタスクは実行されます。追加・変更したい場合は、`config/deploy.rb`に下記を追加してroleを指定して下さい。
+```rb
+croner_roles %w(web db)
+```
+
 ## License
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
