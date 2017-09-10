@@ -11,7 +11,13 @@ module Croner
     insert_rows = File.read(Rails.root.join('config', 'croner', 'hosts', `hostname`.delete("\n"))).split("\n")
 
     # backup current cron contents
-    `crontab -l > .#{Croner.config.backup_path}cron_#{Time.current.strftime('%Y%m%d%H%M%S')}.bak`
+    if Croner.config.enable_backup
+      if Croner.config.backup_path.blank?
+        `crontab -l > ./cron_#{Time.current.strftime('%Y%m%d%H%M%S')}.bak`
+      else
+        `crontab -l > ./#{Croner.config.backup_path}/cron_#{Time.current.strftime('%Y%m%d%H%M%S')}.bak`
+      end
+    end
 
     # get current cron contents
     cron_rows = `crontab -l`.split("\n")
