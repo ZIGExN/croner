@@ -1,4 +1,4 @@
-require 'gtm_on_rails/config'
+require 'croner/config'
 
 module Croner
   def self.config

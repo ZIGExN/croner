@@ -1,3 +1,4 @@
+require 'croner/engine'
 require 'croner/railtie'
 
 module Croner
