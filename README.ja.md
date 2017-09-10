@@ -15,6 +15,18 @@ gem 'croner'
 $ bundle
 ```
 
+最後に以下のコマンドを実行して初期設定を行って下さい。
+```bash
+$ rails g gtm_on_rails:install
+```
+
+## Configure
+インストールで追加された`/config/initializers/croner.rb`の内容を変更することによって設定を変更して下さい。
+#### enable_backup
+cronのバックアップを取るかどうかの設定。
+#### backup_path
+バックアップの保存先の設定。ex. 'log'を設定するとlog内に保存される。デフォルトではRailsアプリケーションのrootに保存される。
+
 ## Usage
 `config/croner/hosts/`にサーバーのホスト名のファイルを作成し、cronで設定する内容を記述して下さい。
 `croner:update`タスクを実行すると、実行したサーバーのホスト名のファイルがあればその内容を追加します。無い場合は何も処理を行いません。

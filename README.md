@@ -15,6 +15,18 @@ And then execute:
 $ bundle
 ```
 
+And then run initial settings:
+```bash
+$ rails g croner:install
+```
+
+## Configure
+Edit the `/config/initializers/croner.rb` file and customize following settings.
+#### enable_backup
+Settings that save backup file.
+#### backup_path
+Backup file's path.
+
 ## Usage
 Make `config/croner/hosts/[hostname]` and run task `croner:update`.
 
