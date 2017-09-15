@@ -26,6 +26,8 @@ $ rails g gtm_on_rails:install
 cronのバックアップを取るかどうかの設定。
 #### backup_path
 バックアップの保存先の設定。ex. 'log'を設定するとlog内に保存される。デフォルトではRailsアプリケーションのrootに保存される。
+#### keep_backups
+バックアップファイルの過去分の保存ファイル数の設定。
 
 ## Usage
 `config/croner/hosts/`にサーバーのホスト名のファイルを作成し、cronで設定する内容を記述して下さい。

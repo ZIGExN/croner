@@ -26,6 +26,8 @@ Edit the `/config/initializers/croner.rb` file and customize following settings.
 Settings that save backup file.
 #### backup_path
 Backup file's path.
+#### keep_backups
+Num of keep backup files.
 
 ## Usage
 Make `config/croner/hosts/[hostname]` and run task `croner:update`.
