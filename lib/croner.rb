@@ -13,9 +13,22 @@ module Croner
     # backup current cron contents
     if Croner.config.enable_backup
       if Croner.config.backup_path.blank?
-        `crontab -l > ./cron_#{Time.current.strftime('%Y%m%d%H%M%S')}.bak`
+        backup_path = '.'
       else
-        `crontab -l > ./#{Croner.config.backup_path}/cron_#{Time.current.strftime('%Y%m%d%H%M%S')}.bak`
+        backup_path = "./#{Croner.config.backup_path}"
+      end
+      `crontab -l > #{backup_path}/cron_#{Time.current.strftime('%Y%m%d%H%M%S')}.bak`
+
+      # delete over backup files
+      backup_files = Dir.glob("#{backup_path}/cron_*.bak")
+      if backup_files.count > Croner.config.keep_backups
+        backup_dates = backup_files.map do |backup_file|
+          backup_file.match(/cron_([0-9]{14}).bak$/)[1] rescue nil
+        end
+        delete_backup_files = backup_dates.compact.sort.first(backup_files.count - Croner.config.keep_backups).map{|backup_date| "#{backup_path}/cron_#{backup_date}.bak"}
+        delete_backup_files.each do |delete_backup_file|
+          File.delete(delete_backup_file)
+        end
       end
     end
 
